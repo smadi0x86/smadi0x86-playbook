@@ -16,8 +16,8 @@ We begin our work as always with setting the right plan. It will make it easier 
     We are writing the reverse shell of the client.
     Compilation and testing on the detector.
     Summing up the results.
+    
 So now we have a plan and we will stick to it. In the following articles I will tell you how to improve this program, but now let's get to work.
-
 
 Reverse TCP Shell
 TCP sockets are the basis of this type of shell. This is a kind of foundation that network applications use.
