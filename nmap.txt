@@ -214,4 +214,5 @@ xsltproc <nmap-output.xml> -o <nmap-output.html>
 
 If you output to a file with -oN, -oG or -oX, you can interrupt a scan in progress and pick up exactly where you left off later by using resume <file>.
 
+
 ~ Enjoy The Movement!
