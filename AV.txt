@@ -1,5 +1,7 @@
 Hello, im going to be showing you all multiple AV evasion & techniques
+
 **READ**
+
 This is assuming you already have the skills to create malware and have learned about Operating Systems, Malware,PS,etc.
 What is AntiVirus?
 Antivirus software is designed to detect and prevent malicious files and processes from spreading across the operating system, thereby protecting the endpoint from executing them
@@ -38,3 +40,5 @@ use process injection techniques to decrypt the payload and execute in memory
 INLINE HOOKING:[b]  [/b]We create a subroutine kind of route, in which we add some code and change the flow of execution so that our malicious code is executed somewhere in between normal function execution and the function completes its work normally, without the user realising it has done something evil.
 PACKERS[b]:[/b]Packers are used to reduce the size of the payload. Malicious codes were previously zipped using winRAR. However, nowadays, packers reduce executable size by creating an entirely new binary structure for the file on disk.
  PROTECTORS[b]:[/b]The protectors were created to prevent any code from being reversed, debugged, or tested via the virtual machine emulation method. However, by constructing payload behind protection and sending to the victim, we may use this functionality to trick Anti-Virus solutions.
+ 
+ ~ Enjoy The Movement!
