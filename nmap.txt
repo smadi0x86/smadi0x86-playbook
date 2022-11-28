@@ -1,7 +1,5 @@
 The thing is, Nmap is one of those OG hacking tools that has been around since forever, and it’s incredible, but similar to amass, Nmap is one of those tools that is synonymous with hacking, and extremely well known, but most people don’t know how to use it to full advantage. Many people rarely do more than this:
 
-
-
 $ nmap host
 
 If you’re doing this, you’re not even scanning all the ports, and you’re definitely not exfiltrating all of the information that Nmap is capable of finding! Nmap is a port scanner at heart, but it does so much more than just tell you which ports are open. You can use Nmap for service/OS detection and even vuln scanning. In this blog post, I’m going to outline how I use Nmap. I hope that by reading this, you will be able to use Nmap more effectively, and find more bugs!
@@ -215,3 +213,5 @@ Convert Nmap XML output to report friendly HTML using xsltproc.
 xsltproc <nmap-output.xml> -o <nmap-output.html>
 
 If you output to a file with -oN, -oG or -oX, you can interrupt a scan in progress and pick up exactly where you left off later by using resume <file>.
+
+~ Enjoy The Movement!
