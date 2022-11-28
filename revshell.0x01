@@ -149,5 +149,4 @@ In this article, I tried to tell you as clearly and simply as possible about how
 You can modify such code forever. One of the main problems of such a shell is that it is not hidden from the user's eyes in any way.
 A hanging console window leads to suspicions. When building, you need to use the --noconsole function, thereby hiding the work of the code from the client's eyes.
 
-
 ~ Enjoy The Movement!
