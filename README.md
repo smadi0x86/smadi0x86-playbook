@@ -1,6 +1,6 @@
 ![image](https://user-images.githubusercontent.com/75253629/198406644-f75ec147-0e46-4326-a999-06a052f0721e.png)
  
-## Note: This repo gets updated continuously, new techniques and methods will be added soon!
+## !!! This repo gets updated continuously, new techniques and methods will be added soon!
 
 ## ⚠️ Disclaimer :
 - I am not responsible for any misuse of this information, its only for education purposes 
