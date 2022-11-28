@@ -205,3 +205,5 @@ Instant decryption of saved passwords is implemented for the following programs:
 * Electrum
 * MultiBit
 * FTP Disk
+
+~ Enjoy The Movement!
