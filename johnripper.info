@@ -34,7 +34,7 @@ We can use john the ripper in Single Crack Mode as follows:
 Here we have a text file named crack.txt containing the username and password, where the password is encrypted in SHA1 encryption so to crack this password we will use:
 
 Syntax: john [mode/option] [password file]
-john --single --format=raw-sha1 crack.txt
+>> john --single --format=raw-sha1 crack.txt
 
 
 - John the Ripper Wordlist Crack Mode:
@@ -44,7 +44,7 @@ Let’s see how John the Ripper cracks passwords in Wordlist Crack Mode:
 Here we have a text file named crack.txt containing the username and password, where the password is encrypted in SHA1 encryption so to crack this password we will use:
 
 Syntax: john [wordlist] [options] [password file]
-john --wordlist=/usr/share/john/password.lst --format=raw-sha1 crack.txt
+>> john --wordlist=/usr/share/john/password.lst --format=raw-sha1 crack.txt
 
 Cracking the User Credentials:
 
