@@ -63,11 +63,14 @@ Now we will use john the ripper to crack it.
 
 Second Method:
 Now, for the second method, we will collectively crack the credentials for all the users.
+
 To do this we will have to use John the ripper utility called “unshadow”.
 unshadow /etc/passwd /etc/shadow > crack.txt
 
-<img src= "https://external-content.duckduckgo.com/iu/?u=https://i0.wp.com/3.bp.blogspot.com/-YvkzW9Dtkms/WxatfhSdqFI/AAAAAAAAXKU/quobPn7uIMkPUaHZAP9DBRGpTOw95PgeACLcBGAs/s1600/7.png?w=640&ssl=1"/>
-Here the unshadow command is combining the /etc/passwd and /etc/shadow files so that John can use them to crack them. We are using both files so that John can use the information provided to efficiently crack the credentials of all users.
+!!! img = https://external-content.duckduckgo.com/iu/?u=https://i0.wp.com/3.bp.blogspot.com/-YvkzW9Dtkms/WxatfhSdqFI/AAAAAAAAXKU/quobPn7uIMkPUaHZAP9DBRGpTOw95PgeACLcBGAs/s1600/7.png?w=640&ssl=1
+
+Here the unshadow command is combining the /etc/passwd and /etc/shadow files so that John can use them to crack them. 
+We are using both files so that John can use the information provided to efficiently crack the credentials of all users.
 
 Now we will use john to crack the user credentials of all the users collectively.
 >> john --wordlist=/usr/share/john/password.lst crack.txt
@@ -121,56 +124,27 @@ We don’t have to type complete option every time we use john the ripper, Devel
 
 
 Shown below is an example of how to use these abbreviations.
-john -si crack.txt -form=raw-md5
+>> john -si crack.txt -form=raw-md5
 
-
-
-[Image: 1.png?w=640&ssl=1]
-
+!!! img = https://external-content.duckduckgo.com/iu/?u=https://i0.wp.com/4.bp.blogspot.com/-MWJpUUlMBEk/WxvxCOUhghI/AAAAAAAAXUE/p_mvRVkmp98YdSf6e5Tph4QtT7RQd0iDwCLcBGAs/s1600/1.png?w=640&ssl=1
 
 
 Another abbreviation we can use is:
 
-
-
-–wordlist can be written as -w
-
-
-
-john -w=/usr/share/wordlists/rockyou.txt crack.txt -form=raw-md5
+– wordlist can be written as -w
+>> john -w=/usr/share/wordlists/rockyou.txt crack.txt -form=raw-md5
 
 
 
-[Image: 2.png?w=640&ssl=1]
+!!! img = https://external-content.duckduckgo.com/iu/?u=https://i0.wp.com/4.bp.blogspot.com/-Xdx-nqQUW54/WxvxCLEO0NI/AAAAAAAAXUI/B-C2lKSsO9ss3PDOYflgcCxAYTdYocftQCLcBGAs/s1600/2.png?w=640&ssl=1
 
-
-
-Cracking Multiple Files
-
-
-
-We can also crack multiple hash files if they have the same encryption. Let’s take an example, we have two files.
-
-
+Cracking Multiple Files:
+We can also crack multiple hash files if they have the same encryption. Let’s take an example, we have two files:
 
 crack.txt
-
-
-
-
-
 md5.txt
-
-
-
-
 
 Both contain md5 hashes, so to crack both files in one session, we will run john as follows:
 
-
-
 Syntax: john [file 1][file 2]
-
-
-
-john -form=raw-md5 crack.txt md5.txt
+>> john -form=raw-md5 crack.txt md5.txt
