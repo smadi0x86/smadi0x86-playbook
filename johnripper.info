@@ -148,3 +148,5 @@ Both contain md5 hashes, so to crack both files in one session, we will run john
 
 Syntax: john [file 1][file 2]
 >> john -form=raw-md5 crack.txt md5.txt
+
+~ Enjoy The Movement!
