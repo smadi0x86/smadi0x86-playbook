@@ -6,6 +6,7 @@ Original dns2tcp source I used: https://github.com/alex-sector/dns2tcp
 All you need is a public domain and NS record. See this setup guide for the dns2tcp server (https://blog.rootshell.be/2007/03/22/dns2tcp-how-to-bypass-firewalls-or-captive-portals/). I will only cover how to use the client on an iPhone.
 
 Requirements for the client setup:
+
 DNS2TCP Client
 NewTerm or any other terminal app
 Brook (https://itunes.apple.com/us/app/brook-a-cross-platform-proxy/id1216002642?mt=8)
