@@ -1,0 +1,31 @@
+This can be used to bypass login pages on captive portals e.g. hotels, airports, etc. 
+After long research, I managed to connect to a local Socks5 proxy on iOS 11, which is not an easy task anymore, as file:/// access is prevented in recent Safari versions.
+
+Original dns2tcp source I used: https://github.com/alex-sector/dns2tcp
+
+All you need is a public domain and NS record. See this setup guide for the dns2tcp server (https://blog.rootshell.be/2007/03/22/dns2tcp-how-to-bypass-firewalls-or-captive-portals/). I will only cover how to use the client on an iPhone.
+
+Requirements for the client setup:
+DNS2TCP Client
+NewTerm or any other terminal app
+Brook (https://itunes.apple.com/us/app/brook-a-cross-platform-proxy/id1216002642?mt=8)
+Filza (optional)
+
+Steps:
+1 - Download and install the 'DNS2TCP Client' from my repository: https://Sectorus.github.io/cydia/
+2 - With NewTerm or Filza: Create a new text file with .conf extension anywhere on your storage e.g. /var/mobile/dns2tpc.conf
+3 - Paste the following content inside the newly created file and modify it with your NS record.
+domain = YOUR_NS_RECORD_DOMAIN
+resource = ssh
+local_port = 2222
+debug_level=1
+4 - In NewTerm connect to the DNS2TCP server using: dns2tcpc -c -f /var/mobile/dns2tcpc.conf 8.8.8.8
+5 - The 8.8.8.8 might be replaced with your own DNS domain or one of the captive portal networks if you are forced to use it
+6 - Open another terminal tab and connect to your server: ssh -p 2222 -D 8080 root@127.0.0.1
+8 - Enter your SSH password and you should now be inside your server's shell.
+9 - Open Brook, set the Socks5 type, use 127.0.0.1:8080 as host, and hit connect/start.
+10 - You are now surfing over DNS requests and can bypass captive portal login screens.
+
+Note: This has only been tested on iPhone 7 Plus (11.0.3) and iPhone 5s (11.3.1).
+
+~ Enjoy The Movement!
