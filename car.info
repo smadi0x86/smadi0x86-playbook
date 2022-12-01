@@ -1,0 +1,27 @@
+I collected a list of useful resources (tools) from those that seemed interesting to me and tried them in practice:
+
+(https://www.hackers-arise.com/sdr-for-hackers)💾VehicleSecurityToolkit
+(https://github.com/firmianay/Vehicle-Security-Toolkit)💾VihicleSecurity
+(https://github.com/wtsxDev/Vehicle-Security)💾Awesome vehicle security(list of resources)
+(https://github.com/jaredthecoder/awesome-vehicle-security)💾All Your RFz Are Belong to Me
+(https://www.youtube.com/watch?v=ZuNOD3XWp4A)💾Android OBD diagnostics with any ELM327 adapter
+(https://github.com/fr3ts0n/AndrOBD)💾Radio Hacking
+(https://www.youtube.com/watch?v=1RipwqJG50c)💾The CAN Injection Toolkit
+(https://github.com/souravbaghz/CarPunk)💾Car Hacking Tools
+(https://github.com/jgamblin/carhackingtools)💾Security analysis toolkit for proprietary car protocols
+(https://github.com/schutzwerk/CANalyzat0r)💾Reverse engineering results and resources for a few specific car models
+(https://github.com/ps1337/automotive-security-research)💾HackRF One lessons(youtube)
+(https://youtube.com/playlist?list=PL75kaTo_bJqmw0wJYw3Jw5_4MWBd-32IG)💾HackRF SDR(Reddit)
+(https://www.reddit.com/r/hackrf/)💾Universal Radio Hacker
+(https://github.com/jopohl/urh)💾HackRF(Github)
+(https://github.com/greatscottgadgets/hackrf)💾Getting Started with HackRF
+(https://hackrf.readthedocs.io/en/latest/getting_started_hackrf_gnuradio.html)💾gqrx(Github)
+(https://github.com/gqrx-sdr/gqrx)💾Arduino OBD-II Bluetooth Scanner Interface Library for Car Hacking Projects
+(https://github.com/PowerBroker2/ELMduino)💾GNURadio LimeSDR Mini Examples
+(https://github.com/jakeson21/gr-limesdr-examples)💾LimeSuite Wrapper on Go (Driver for LimeSDR Devices)
+(https://github.com/racerxdl/limedrv)💾Using RTL-SDR to Open Car Doors
+(https://techryptic.github.io/2016/06/08/Using-RTL-SDR-to-Open_Car-Doors/)💾Bypassing Rolling Code Systems – CodeGrabbing/RollJam
+(https://www.rtl-sdr.com/bypassing-rolling-code-systems-codegrabbing-rolljam/)💾Explaining and Demonstrating Jam and Replay Attacks on Keyless Entry Systems
+(https://www.rtl-sdr.com/explaining-and-demonstrating-jam-and-replay-attacks-on-keyless-entry-systems-with-rtl-sdr-rpitx-and-a-yardstick-one/)💾Detecting Car Keyfob Jamming With a Raspberry Pi and RTL-SDR
+(https://www.rtl-sdr.com/detecting-car-keyfob-jamming-with-a-raspberry-pi-and-rtl-sdr/)💾Using an RTL-SDR and RPiTX to Unlock a Car with a Replay Attack
+(https://anonfiles.com/D0Q8JaS4x9/Car_Hacking_Handbook_pdf) Pdf Car Hacking
