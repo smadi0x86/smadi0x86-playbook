@@ -1,0 +1,47 @@
+Hello! Today I will show u little DIY project for Wi-Fi Jammer.
+
+Introduction for people who don't know what is this!
+By jamming the Wi-Fi network you can block or jam any Wi-Fi connection,
+and no one is able to connect to that Wi-Fi network even after knowing the password. This can be done with a tiny Microcontroller ESP12E,
+which is also referred as Wi-Fi module or NodeMCU.
+ESP is very popular for Wi-Fi tricks like creating a fake Wi-Fi network, serving your own page to steals someone’s password, block the Wi-Fi network etc.
+Even ESPs are being sold, with all the software flashed on them for doing these tricks, you just need to Plug and Play.
+But here we are creating our own Wi-Fi jammer. Whit this we can flood some network, make fake clones, make fake access points and etc.
+
+For this project u need to buy the microchip ESP8266
+
+Now, we have 2 methods for making this.
+
+* 1. Uploading Jammer Arduino sketch into ESP12.
+
+* 2. Uploading Wi-Fi Jammer firmware into ESP12 using ESP8266 flasher.
+
+Let's start!
+
+[1] Download The Flasher
+
+https://github.com/nodemcu/nodemcu-flasher
+
+[2] Download Deauther Firmware
+
+https://github.com/SpacehuhnTech/esp8266...r/releases
+
+(download: esp8266_deauther_2.6.1_DSTIKE_DEAUTHER_MINI.bin)
+
+Now we need to burn this bin via Flasher. Open the esp8266flasher.exe file. (from folder Win64 or Win32 Release)
+
+[3] Click on Config and choose the .bin file that you have downloaded for your board and click on Advanced. And change "Baudrate" to 11520.
+
+The recommended baud rate for uploading is 115200.
+
+[4] Click on Flash and it will start your uploading process. Wait for few minutes and your firmware uploading is finished.
+
+[5] Now, connect your laptop or smartphone with Access Point created by NodeMCU. Name of AP is “pwned” and password is “deauther” These are default name and password which you can see on serial monitor.
+
+[6] Open browser and type in URL: 192.168.4.1
+
+Click on the notice button, Then u will see button "SCAN" - click on.
+
+Now u will see your WiFis, Select some network and click in "Attacks" and choose what method for attack u want: flood or clone or add other fake networks
+
+~ Enjoy The Movement!
