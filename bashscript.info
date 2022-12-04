@@ -8,4 +8,14 @@ wanIp="$(curl https://ipinfo.io/ip 2>/dev/null)";
 echo "Your private ip is: ${lanIp}";
 echo "Your public ip is: ${wanIp}";
 
+First command uses the ip command to get your local network ipv4 address then pipes the output to awk to extract only the ipv4 address from the output.
+
+However, ip displays a line for each network interface present and more information on each line than just the ip address. So we need to filter out inactive interfaces then strip to only the ip address. You could do these steps with grep and sed if you wanted, or even with perl, but I used awk here.
+
+awk uses $0 to match the entire line of output from the first command to the regex [we]\w+ make sure the line contains a name starting with either 'e' or 'w' (as wifi and Ethernet network interfaces in Linux typically start this way). This part may not be entirely portable but it has worked for me on several Linux distros as well as on Termux. I have not tested it on Mac or BSD though. It also makes sure the interface has the text "UP" after the name to only match active network interfaces. It then uses awk's gsub function to extract only the ip address from the results and then prints it back to standard out where it is set to the lanIp variable.
+
+This could probably be simplified if you have a statically named network interface like eth0 or you are ok with hard-coding the interface name in your script. I use the above because most modern Linux distros use semi-randomly generated interface names and this works with either wifi or ethernet interfaces.
+
+Second command uses curl to get wan address from a website which returns nothing but your wan ip and redirects other output from curl to /dev/null.
+
 ~ Enjoy The Movement!
