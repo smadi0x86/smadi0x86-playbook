@@ -1,0 +1,48 @@
+First Thing First, what is NTLM Hash?
+
+Microsoft’s Windows New Technology LAN Manager (NTLM) is a set of protocols that allows hosts to verify their identification while also protecting the privacy and confidentiality of their data. 
+NTLM is the replacement for Microsoft LAN Manager (LANMAN), an earlier Microsoft product.
+A security support provider that incorporates the LAN Manager identification protocol, NTLMv1, NTLMv2, and NTLM2 session protocols in a standard bundle, implements the NTLM protocol set. NTLM uses a challenge-response process for user authentication.
+
+- NTLM uses a three-way handshake:
+                               Client -> Negotiation Message.
+                               Server → Challenge Message.
+                               Client → Authentication Message.
+
+The NTLMv2 one-way function uses the NT MD4 algorithm. The 128-bit hash lengths function on both local and server accounts.
+The NTLM protocol utilizes either of two hashed password values, which are both kept on the server and are password identical due to a lack of salting, indicating that you can validate without having the genuine password if you catch the hash value from the server.
+
+So, Is There Any Tool to Retrieve NTLM Hash?
+https://github.com/deepzec/Bad-Pdf tool Bad-PDF generates a malicious PDF document to capture NTLM (NTLMv1/NTLMv2) Hashes from windows systems, it does so by exploiting a loophole discovered by the checkpoint group.
+Through Responder listener, Bad-Pdf checks the NTLM hashes.
+
+Interesting, What About Lab Requirement?
+To practice this vulnerability, all you need is:
+                                                 Attacker VM → Kali Linux.
+                                                 Victim VM → Windows 10.
+
+Let Us Capture NTLM Hashes:
+Clone the Bad-PDF package from GitHub on the Kali Linux desktop. Change directory to the cloned git and give rights to Bad-PDF python file to execute.
+
+Run the python file. The python file connects with the responder using a usr/sbin/responder
+Enter Kali Linux VM IP in network IP.
+Enter the output file name and interface name.
+(Always name payload after some familiar file, so the victim can click on it without getting suspicious)
+You will find the created malicious pdf file in the Bad-Pdf folder.
+
+Transfer the malicious Pdf file into the victim machine.
+I use cifs-utils to move files from attacker to victim or vice versa. You can also transfer the malicious file with different methods like email.
+Once the victim clicks the PDF file, their NTLM hashes get to capture. You can notice in the screenshot the username of the victim along with its NTLM hash.
+Save the captured hash in a text document on the Kali Linux desktop to crack the password.
+
+Use John the ripper to crack the hash. Boom, you retrieved the password of Windows 10 Admin.
+
+Final Thoughts:
+
+Kerberos, like NTLM, is another authentication protocol that makes windows password hacking difficult.
+NTLM focus on password hashing, a one-way method that generates a piece of text from input data.
+Kerberos makes use of encryption, a two-way mechanism that encrypts and decrypts data using an encryption/decryption key. 
+NTLM acts as a backup to the Kerberos protocol, which is currently Microsoft’s default authentication tool. 
+If Kerberos refuses to verify the user, the device will fall back to NTLM.
+
+~ Enjoy The Movement!
