@@ -1,0 +1,23 @@
+- Before attempting to do the steps in the following guide, make sure to disable automatic sample submission in Windows defender so your recompiled binary won't get sent to Microsoft.
+
+1. First, download netcat for Windows source code from this website: https://eternallybored.org/misc/netcat/
+
+(Preferably download the 1.12 version since its the less downloaded one.)
+
+2. Unzip the file.
+3. Install gcc.
+
+// If you're on Windows and dont have gcc installed, use this easy-to-follow guide: https://dev.to/gamegods3/how-to-install-...r-way-422j
+
+4. Now, we don't really need to use the Makefile. We can recompile netcat using the command-line.
+
+4.1. First, open cmd within the folder containing netcat's source code.
+
+4.2. Then, paste the following command:
+
+gcc getopt.c doexec.c netcat.c -s -lkernel32 -luser32 -lwsock32 -lwinmm -o ncat.exe
+
+It will show some warnings, but that's normal. In this case, the output binary will be ncat.exe.
+You can test it by typing "ncat -lvp 444" and you'll see that it works. 
+
+~ Enjoy The Movement!
