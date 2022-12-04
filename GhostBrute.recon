@@ -1,4 +1,4 @@
-[1] ## SMB bruteforece
+[1] ## SMB bruteforce
 
 nmap --script=smb-brute.nse 192.x.x.x
 
