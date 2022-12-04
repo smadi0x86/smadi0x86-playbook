@@ -106,3 +106,5 @@ msf auxiliary(telnet_login) > set VERBOSE false
 VERBOSE => false
 
 msf auxiliary(telnet_login) > run
+
+~ Enjoy The Movement!
