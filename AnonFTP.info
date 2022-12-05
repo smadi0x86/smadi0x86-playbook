@@ -1,0 +1,23 @@
+ // How to find FTP with anonymous login and how to check some FTP for "Anonymous Login Allowed".
+
+[1] For finding open FTP we can use Shodan Search Engine with this dork
+
+"230 login successful" port:"21"
+We choose some FTP and try to login. After successful login write "ls" to see files and dirs.
+
+[2] For check some FTP we need to use NMAP
+
+When attacking or targeting a system, one of the initial steps that an attacker takes is to perform a scan of the target.
+This scan gives the attacker information such as open ports and running services. We used Nmap to scan the ubuntu machine that we just configured.
+We can see that the Nmap was able to identify that the FTP service was functional on the target machine
+and it also takes another step into enumeration and informs the attacker that the FTP service has Anonymous Login Enabled.
+
+Command: nmap -A IP
+
+And now we see line: ftp-anon: Anonymous FTP login Allowed (FTP code 230)
+Now try to login with username: anonymous | pass: anonymous
+
+And done!
+
+~ Enjoy The Movement!
+
