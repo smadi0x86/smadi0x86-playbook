@@ -1,0 +1,76 @@
+ // I will show u "Canarytoken" - What is this?, How to make hook and how to detect it.
+ 
+ [1] What is this?
+- Canarytokens are one type of customisable unique links that someone click or access this links we can get many information of target 
+like the IP, location, browser, target is using tor or not and many more information.
+
+[2] How to make a hook?
+- Open https://canarytokens.org/ and make this config
+
+// In drop-down menu we can see options:
+
+
+- Web-bug / URL token (Alert when URL is visited)
+
+- DNS token (Alert when a hostname is required)
+
+- Unique email address token (Alert when an email is send to a unique address)
+
+- Custom Image Web bug token (Alert when an image you uploaded is visited)
+
+- Microsoft Word Document token (Get alerted when a document is opened is Microsoft Word)
+
+- Acrobat Reader PDF Document token (Get alerted when a PDF document is opened in Acrobat Reader)
+
+- Windows Folder token (Be notified when a windows folder is browsed in Windows explorer)
+
+- Custom exe / binary token (Get notified when an EXE or DDL is executed)
+
+- Cloned website token (Get an alert when your website is cloned)
+
+- SQL Server token (Get notified when MS SQL server databases is accessed)
+
+- QR Code token (Generate QR Code for physical token)
+
+- SVN token (Alert when someone checks out an SVN repository)
+
+- AWS keys toke (Alert when AWS key is used)
+
+- Fast Redirect token (Alert when url is visited. User is redirected)
+
+- Slow Redirect token (Alert when url is visited. User is redirected, grab more information)
+
+For this tutorial we will make with URL. And now
+
+Click on Create my Canarytoken.
+
+Now we can copy and send this link to victim. Here is some idea about how to send this link.
+
+ 1/ We can send this on email with a juicy subject.
+
+ 2/ We can embedded this link with some documents.
+
+ 3/ We also can set this link on any web page image with <img src=""> , we need to make sure that the image must be attractive so victim will click on it.
+
+ 4/ We can use social engineering to track someone by sending this link.
+
+After this, we can see in Canarytoken page this
+
+Click on "View history" and thats it.
+
+You can find the result also and in the email
+
+// Okay, that's it for this how to make hook. Now we will see how to detect someone canary hook:
+
+
+[3] Download and install CanaryTokensDetector
+
+- https://github.com/techchipnet/CanaryTokensDetector.git
+
+- Copy the file you want to scan in CanaryTokensDetector directory. Run the script
+
+- Write document name and press enter.
+
+And we can see the result. 
+
+~ Enjoy The Movement!
