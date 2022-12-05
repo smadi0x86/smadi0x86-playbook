@@ -1,0 +1,35 @@
+[1] What is this "WebShell" ?
+
+A web shell is a malicious script that provides an attacker with a convenient way to launch further attacks using a compromised web server. Web shells are installed after successful initial exploitation and can provide a permanent backdoor into web applications and related systems. Learn how web shells work, why they are dangerous, and what you can do to detect and prevent them.
+
+[2] How hackers use this?
+
+Depending on local system privileges (existing or obtained through privilege escalation), attackers may be able to use the web shell just like a local command line prompt. For the minimum PHP web shell example provided above, the attacker would send URL-encoded system commands via the query parameter. Assuming a Linux/UNIX system, a typical command to get a list of user names and confirm code execution privileges would be
+cat /etc/passwd
+
+ To send and execute the command, the attacker would simply navigate to:
+http://example.com/compromised_file.php?x=cat%20%2Fetc%2Fpasswd
+
+
+Real-life web shell commands often include obfuscation to avoid detection. Once an attacker has a web shell for remote access and system command execution, the possibilities for further malicious actions are practically unlimited. Data theft and drive-by malware installation are two common uses, but web shells are also used to create and coordinate botnets for distributed denial of service (DDoS) attacks. By using a compromised remote system as a botnet command & control server, malicious hackers can cover their tracks to avoid detection. If the attacker can modify other scripts or web server configuration files, another possible attack is to redirect visitors to a malicious site.
+
+[3] Popular Web Shell Types and Targets
+
+Some of the better-known include b374k (a PHP web shell), WSO (short for Web Shell by Orb), and the advanced China Chopper web shell (commonly used in attacks originating from China). Full-fat web shells can include built-in features for file management, brute-force attacks, botnet command & control, and even detecting and removing other web shells on the compromised system.
+
+Being PHP-based and the most popular content management system in the world, WordPress makes a prime target for web shell deployments, especially considering the additional attack surface of WordPress plugins. Of course, it’s not just about PHP shells – any web application that can be exploited to obtain elevated privileges could eventually have a web shell planted in it.
+
+[4] Prevention
+
+The following is a non-exhaustive list of preventive measures to take in relation to web shells.
+
+>>  If not used, disable potentially dangerous PHP functions such as exec(), shell_exec(), passthru(), system(), show_source(), proc_open(), pcntl_exec(), eval(), and assert()
+>> If it’s an absolute necessity to have those commands enabled, make sure that unauthorized users do not have access to these scripts. Additionally, use escapeshellarg() and escapeshellcmd() to ensure that user input can not be injected into shell commands, resulting in command execution vulnerabilities.
+>> If your web application is using upload forms, make sure that they are secure and that they only allow whitelisted file types to be uploaded.
+>> Never trust user input.
+>> Do not blindly use code that you may find on online forums or websites.
+>> In the case of WordPress, try to avoid installing third-party plugins if you do not need them. If you need to make use of a plugin, ensure it is reputable and frequently updated.
+>> Disable PHP execution in sensitive directories like images or uploads.
+>> Lock down web server user permissions.
+
+~ Enjoy The Movement!
