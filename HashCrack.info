@@ -1,6 +1,5 @@
 Hello! In this tutorial I will show u how to crack password hash with JohnTheRipper
 
-
 [1] Open a text document by typing gedit 
 
 [2] Paste your hash and press SAVE
@@ -8,14 +7,14 @@ Hello! In this tutorial I will show u how to crack password hash with JohnTheRip
 [3] Save document in root dir "pass.txt" (in my screenshot the name is breach_tut.txt
 
 [4] Open terminal and write the command:
-john pass.txt
+>> john pass.txt
 
 Press Enter and wait.
 
 When John is done, you will see the result. In this example Im not waited for the result.
 
 For using your wordlist, u can try this command
-john –wordlist=your_wordlst.txt –rules pass.txt
+>> john –wordlist=your_wordlst.txt –rules pass.txt
 
 For Hashcat: sudo gzip -d /usr/share/wordlists/rockyou.txt.gz
 
