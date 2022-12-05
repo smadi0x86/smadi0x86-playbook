@@ -1,0 +1,73 @@
+ I will show u how to detect XSS vulnerability in some site with automated tool. 
+We will consider the following points:
+
+[1] XSS - Introduction for newbies
+[2] Automated XSS tools for scanning
+[3] Testing...
+
+Introduction
+> Cross-site Scripting (XSS) is a client-side code injection attack. The attacker aims to execute malicious scripts in a web browser of the victim by including malicious code in a legitimate web page or web application.
+The actual attack occurs when the victim visits the web page or web application that executes the malicious code.
+The web page or web application becomes a vehicle to deliver the malicious script to the user’s browser.
+Vulnerable vehicles that are commonly used for Cross-site Scripting attacks are forums, message boards, and web pages that allow comments.
+\A web page or web application is vulnerable to XSS if it uses unsanitized user input in the output that it generates. 
+This user input must then be parsed by the victim’s browser. XSS attacks are possible in VBScript, ActiveX, Flash, and even CSS.
+However, they are most common in JavaScript, primarily because JavaScript is fundamental to most browsing experiences.
+
+How Cross-site Scripting Works?
+
+There are two stages to a typical XSS attack:
+
+* To run malicious JavaScript code in a victim’s browser, an attacker must first find a way to inject malicious code (payload) into a web page that the victim visits.
+
+* After that, the victim must visit the web page with the malicious code. If the attack is directed at particular victims, the attacker can use social engineering and/or phishing to send a malicious URL to the victim.
+
+
+Automated XSS tools for scanning
+
+XSStrike and PnwXSS is very good open source tools for XSS detecting. We can use and other site scanners like a Acunetix for finding XSS vulnerability but today we will work with "PwnXSS". This tool is specially designed to find cross-site scripting. This tool is written in python. You must have python 3.7 installed in your Kali Linux. There are lots of websites on the internet which are vulnerable to cross-site scripting(XSS). This tool makes finding cross-site scripting easy. This tool works as a scanner. The Internet has millions of websites and web apps a question comes into mind whether your website is safe or not. Security of our websites plays an important role.
+
+
+--> Let's start! <--
+
+For install follow this steps!
+
+--> make folder in some directory:
+
+cd Desktop
+
+mkdir PwnXSS
+
+--> open the directory PwnXSS and write
+
+pip3 install bs4
+
+pip3 install requests
+
+--> Now u have to install the tool
+
+git clone https://github.com/pwn0sec/PwnXSS
+
+--> Open the tool directory (cd PwnXSS)
+
+chmod 755 -R PwnXSS
+
+--> Done, now we can see the help menu
+
+python3 pwnxss.py --help
+
+
+Testing
+
+For this tutorial I will show u test with official acunetix vuln page.
+
+Type the command:
+
+python3 pwnxss.py -u http://testphp.vulnweb.com
+
+And now we can see the result
+These are the vulnerability that the tool has detected. 
+The tool keeps checking the website again and again when found a vulnerable website it will show you on the terminal.
+
+~ Enjoy The Movement!
+
