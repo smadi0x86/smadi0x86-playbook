@@ -1,0 +1,21 @@
+The http-grep script searches the given page for useful information. 
+By default, it returns the e-mail addresses and IP addresses found on all subpages discovered by the script.
+We can give the script in the http-grep.url argument subpage that we want to search, and using the argument, http-grep.builtins,
+we will extend the scope of the search to email addresses, IP addresses, phone numbers, mastercard, visa, discover, amex, and ssn cards.
+If we want to add a word or regular expression to be searched, we pass it to the argument, http-grep.match.
+By default, set to 3, the search depth can be changed using the http-grep.maxdepth argument.
+
+Script source:
+https://github.com/nmap/nmap/blob/master...p-grep.nse
+
+To use these script arguments, add them to the Nmap command line using the --script-args arg1=value,[arg2=value,..] syntax.
+For example:
+
+nmap --script=http-grep --script-args http-grep.breakonmatch=value,http-grep.builtins=value <target>
+
+Http-grep NSE Script Example Usage
+
+nmap -p 80 www.example.com --script http-grep --script-args='match="[A-Za-z0-9%.%%%+%-]+@[A-Za-z0-9%.%%%+%-]+%.%w%w%w?%w?",breakonmatch'
+nmap -p 80 www.example.com --script http-grep --script-args 'http-grep.builtins ={"mastercard", "discover"}, http-grep.url="example.html"'
+
+~ Enjoy The Movement!
