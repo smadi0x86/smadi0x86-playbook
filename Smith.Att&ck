@@ -1,0 +1,37 @@
+[1] A smishing attack basically means to do a phishing attack with the help of SMS. In this attacker sends an SMS to the victim with a link to a fake website or you will be tricked into downloading malware which will compromise your phone and let the hacker access your device. Smishing means “SMS+Phishing”.
+
+How it works?
+
+>> An Attacker will create an SMS which will consist of some social engineering text and a link.
+
+>> The link will take you to a website and possibly download the malware into your phone or will take you to a phishing website.
+
+>> As soon as you install the malware on your phone your phone will be compromised and the hacker can access your phone.
+
+Examples Smishing scenario:
+
+I send you a text message with a following content for app update.
+
+"Your application store is out of date. Please, download the updated version from here. https://tinyurl.com/AppStoreUpdate".
+
+We have previously uploaded the fake application to some file host and we masking him with TinyURL (or other short url).
+
+Now any person will click the link to stop the subscription and you clicked the link and my link will take you to a website that will automatically download malware to your phone and if you install the malware your phone will be compromised.
+
+[2] How to make this attack?
+
+It's simple! Just download N-Anom tool (u can find him in github for free) and follow my screenshot
+
+Before using, u can test with ur phone number.
+
+[3] How to be safe?
+
+* Do not click on any untrusted link from SMS.
+
+* Never use your phone number on untrusted websites.
+
+* Never install a shady application on your phone.
+
+* Always use two-factor authentication.
+
+~ Enjoy The Movement!
