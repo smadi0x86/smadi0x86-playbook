@@ -1,0 +1,26 @@
+Hello! Today I will show u how to hack WiFi password with Windows OS.
+Today we will making Pixie Dust Attack with simple tool for Windows.  But for first "What is Pixie Dust Attack?"
+
+We need download:
+
+- "Router Scan" /from here/ -- > https://github.com/mustafashykh/router-s...release.7z
+
+(VirusTotal scan --> https://www.virustotal.com/gui/file/e97d...089d524690 )
+
+- WinPcap /from here/ --> https://www.winpcap.org/install/
+
+[1] Install WinPcap and open Router Scan.
+
+[2] Click on Wireless Networks then add check to "Enable discovery" and now u can see WiFis
+
+[3] Now choose network who want to attack. Mark his ESSID or BSSID and press "W".
+
+[4] Attack is starting
+
+If attacked router is vulnerability, after success PIN brute force u will see password
+
+[+] SSID: AttackedNetwork
+
+[+] Key: This_Is_WiFi_Password 
+
+~ Enjoy The Movement!
