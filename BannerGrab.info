@@ -1,0 +1,28 @@
+For first, what is "Banner Grabbing"?
+
+Grabbing a banner is the first and apparently the most important phase in both the offensive and defensive penetration testing environments.
+we’ll take a tour to “Banner Grabbing” and learn how the different command-line tools and web interfaces help us to grab the banner of a webserver and its running services.
+“Banner Grabbing” is often termed as “Service Fingerprinting”. Banner refers to a text message received from the host.
+usually, it includes  information about the open ports and services with their version numbers.
+Banner Grabbing allows an attacker to discover network hosts and running services with their versions on the open ports and moreover operating systems so that he can exploit the remote host server.
+
+[1] WhatWeb - “WhatWeb” recognizes websites, which helps us to grab the web-applications banner by disclosing the server information with its version,
+the IP address, the webpage Title and running operating system.
+
+[2] cURL - The cURL command includes the functionality for retrieving the banner details from HTTP servers.
+
+[3] Wget - We will be using the wget command to capture the HTTP banner of the remote server And we will use  –q flag to cover-up the progress of our output,
+while the -S flag will print out the header information of all requested pages.
+
+[4] Nikto - Nikto is an open-source web-application scanner, which we’ll be using to grab a banner of a website running on an Ubuntu server.
+Type the following command in order to capture the installed web server – its version, the configuration index files, the HTTP server options and a list of other useful details.
+
+[5] NetCat (I have one tutorial for NC, u can find it in "Cracking Tutorials"). Netcat is a network utility that will again help us to grab the FTP banner of the remote host server.
+
+[6] Dmitry (Deepmagic Information Gathering Tool) - has the ability to gather as much information as possible about a host.
+Base functionality is able to gather possible subdomains, email addresses, uptime information, tcp port scan, whois lookups, and many more.
+The –pb flag is used to grab the banner for all the open-ports of the remote host.
+
+Of course there are more ways, but I show u the main ones.
+
+~ Enjoy The Movement!
