@@ -1,0 +1,23 @@
+This is little tutorial for NetCat. Two useful lessons.
+
+Lesson [1] How to make local chat server? This is useful for people who they have several PCs and this is simple method for transfer links (for example).
+
+[1] We use Kali Linux and NC is already installed here.
+
+Open terminal and write ifconfig
+
+[2] Copy your wlan0 IP (inet XX.XX.XX.XX)
+
+[3] Run this command: nc -nvlp 1234
+
+[4] In other device run this command: nc 192.168.0.103 1234
+
+And in terminal from NetCat listening machine you will see this connection and then write your message and press Enter!
+And in device number 2 you will get it
+
+Lesson [2]: How to see if certain ports in domain are open?
+Just use this command: nc -zv domainname.com port1 port2 port3 and etc, press Enter.
+
+If the ping succeeds, the output shows the successful connection message. The -z option ensures the connection does not persist.
+
+~ Enjoy The Movement!
