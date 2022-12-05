@@ -1,0 +1,18 @@
+In this tutorial I will show u how to use proxy with Tor Network
+
+[1] Download this repo --> git clone https://github.com/brainfucksec/kalitorify
+
+[2] If u not have installed Tor write this command --> sudo apt-get install -y tor curl  
+
+[3] write --> cd kalitorify
+
+[4] write --> sudo make install
+
+[5] and now start with this command --> sudo kalitorify -t
+
+[6] Wait for Tor Connection and Done. Open ipinfo.io and check result from terminal
+
+Command for stop Tor services is this:
+>> sudo service tor stop
+
+~ Enjoy The Movement!
