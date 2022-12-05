@@ -29,12 +29,9 @@ In attacker computer if there’s any vulnerability in victim computer browser i
 In this case the exploit create new fake process named "Notepad.exe".
 
 
-[11] To view active sessions that already opened by the exploit type "sessions -l" for listing an active sessions. Take a look to the ID… we will use that ID to connect to victim computer. To interract and connect to victim computer use command "sessions -i ID". ID is numerical value that given when you do sessions -l. 
+[11] To view active sessions that already opened by the exploit type "sessions -l" for listing an active sessions. Take a look to the ID… we will use that ID to connect to victim computer. To interract and connect to victim computer use command "sessions -i ID". 
+ID is numerical value that given when you do sessions -l. 
 For example you can see example in picture below.
 Victim computer already owned.
 
 ~ Enjoy The Movement!
-
-
-
-
