@@ -1,0 +1,49 @@
+[1] Location: /usr/share/wordlists
+
+[2] Dirb Wordlists --> [b]Location: /usr/share/wordlists/dirb
+
+[/b] To take a closer look at one of the directories, we use the tree command to list all the wordlists inside the dirb directory. 
+Here we have different wordlists that differ in size and languages. 
+There is an extensions wordlist too so that the attacker can use that directory to perform a Directory Bruteforce. 
+There are some application-specific wordlists such as apache.txt or sharepoint.txt as well.
+
+[3] Rockyou Wordlist --> Location: /usr/share/wordlists
+
+Rockyou.txt is a set of compromised passwords from the social media application developer also known as RockYou.
+It developed widgets for the Myspace application.
+In December 2009, the company experienced a data breach resulting in the exposure of more than 32 million user accounts.
+It was mainly because of the company’s policy of storing the passwords in cleartext.
+
+When first booting Kali Linux, it will be compressed in a gz file. 
+To unzip run the following command. It will decompress and ready for use on any kind of attack you want:
+>> gzip -d /usr/share/wordlists/rockyou.txt.gz
+
+[4] Wfuzz Wordlists --> Location: /usr/share/wordlists/wfuzz
+Wfuzz tool was developed to perform Bruteforcing attacks on web applications.
+It can further be used to enumerate web applications as well.
+It can enumerate directories, files, and scripts, etc.
+It can change the request from GET to POST as well.
+That is helpful in a bunch of scenarios such as checking for SQL Injections. 
+It comes with a set of predefined wordlists. 
+These wordlists are designed to be used with wfuzz but they can be used anywhere you desire.
+The wordlists are divided into categories such as general, Injections, stress, vulns, web services, and others.
+
+Looking into the Injections directory we see that we have an All_attack.txt that is a pretty generic wordlist for testing injections. 
+Then we have a specific one for SQL, Directory Traversal, XML, XSS injections.
+Moving onto the general directory, we see that we have the big.txt that we discussed in the Dirb section.
+We have common.txt that also is the default wordlist in many tools due to its small size. 
+Then we have the extensions_common.txt which contains like 25-ish extensions that might be enumerated some files that can be considered low-hanging fruits.
+
+Installing other wordlist ---> SecList
+Seclists are a collection of multiple types of wordlists that can be used during Penetration Testing or Vulnerability Assessment, all collected in one place. 
+These wordlists can contain usernames, passwords, URLs, sensitive data patterns, fuzzing payloads, web shells, etc. To install on Kali Linux,
+we will use the apt command followed by the Seclists as shown in the image below.
+
+>> sudo apt install seclists
+
+The installation will create a directory by the name of Seclists inside the /usr/share location. 
+Going through we can see the different categories of wordlists such as Discovery, Fuzzing, IOCs, Misc, Passwords, Pattern Matching, Payloads, Usernames, and Web-Shells.
+
+!!! Directory: /usr/share/seclists
+
+~ Enjoy The Movement!
