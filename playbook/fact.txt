@@ -1,0 +1,26 @@
+SKIP CEH, yes it is worthless, how can passing a multiple choice exam certify you as a pen tester? lol its a gimmick.
+
+Start with learning networking and security fundamentals, look on youtube there is heaps of content.
+
+After that look into PhdSecurity and Thecybermentor on youtube for more great free content this is practical.
+
+Join TryHackMe and start going through their walkthroughs, there is A LOT of content so dont get scared, just tackle it bit by bit.
+
+Take notes on everything you learn, if you dont you will be screwed.
+
+After you have done 50+ CTF's maybe then start looking at getting the OSCP.
+
+If u have no idea in pentesting then start with the eJPT cert, 200$ investment to start in cybersec.
+
+It all depends on how much time and effort you want to spend.
+There are many online resources that you can use to get started, hack the box, tryhackme, and so many others.
+
+Watch videos on how people like ippsec solve boxes, read writeups, learn the techniques and the basics and start trying it on your own.
+Build your own index of techniques and tools to use. 
+
+When you feel more comfortable to challenge yourself,I would go directly for the OSCP, it has the highest value on the market, 
+You need to have the time and dedication for it though.
+
+Don't tread lightly and really focus on getting the labs done before going for the exam. All in all, grit is everything.
+
+~ Enjoy The Movement!
