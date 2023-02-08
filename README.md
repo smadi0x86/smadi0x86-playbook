@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="https://github.com/smadi0x01/0x01Facility"><img src="https://f.top4top.io/p_2595ex7pf1.gif" alt="skull.logo"></a>
+  <a href="https://github.com/smadi0x01/0x01Facility"><img src="https://b.top4top.io/p_2595stw581.gif" alt="skull.logo"></a>
   <br>
   Welcome to 0x01 Facility
   <br>
@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="">
-    <img src="https://img.shields.io/badge/General-methods-black.svg">
+    <img src="https://img.shields.io/badge/General-Methods-black.svg">
 
   </a>
   </p>
