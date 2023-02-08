@@ -1,27 +1,23 @@
 <h1 align="center">
   <br>
-  <a href="https://github.com/smadi0x01/static-web"><img src="https://l.top4top.io/p_2594v190t1.gif" alt="nyancat.logo"></a>
+  <a href="https://github.com/smadi0x01/0x01Facility"><img src="https://f.top4top.io/p_2595ex7pf1.gif" alt="skull.logo"></a>
   <br>
-  My Personal Website (Azure server)
+  Welcome to my facility
   <br>
 </h1>
 
-<h3 align="center">No Framework (vanilla-basic)</h3>
+<h3 align="center">Enjoy The Movement!</h3>
 
 <p align="center">
   <a href="">
-    <img src="https://img.shields.io/badge/HTML-5-orange.svg">
-    <img src="https://img.shields.io/badge/CSS-3-blue.svg">
-    <img src="https://img.shields.io/badge/Javascript-JS-yellow.svg">
-    <img src="https://img.shields.io/badge/Microsoft-Azure-blue.svg">
+    <img src="https://img.shields.io/badge/General-methodologies-yellow.svg">
+
   </a>
   </p>
 
-   <h4 align="center">https://gray-sea-064531100.2.azurestaticapps.net/</h4>
+## 😊 Notice :
 
-## 😊 My First Experience :
-
-- Coming soon! I'll give a detailed writeup about everything I learned during constructing this website.
+- This repo gets updated every one in a while, it includes everything I learned and practiced
 
 ## ⚠️ Disclaimer :
 
