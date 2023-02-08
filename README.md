@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="">
-    <img src="https://img.shields.io/badge/General-methodologies-yellow.svg">
+    <img src="https://img.shields.io/badge/General-methods-yellow.svg">
 
   </a>
   </p>
