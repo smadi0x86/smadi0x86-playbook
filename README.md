@@ -17,7 +17,7 @@
 
 ## 😊 Notice :
 
-- This repo gets updated every one in a while, it includes everything I learned and practiced
+- This repo gets updated every once in a while, it includes everything I learned and practiced
 
 ## ⚠️ Disclaimer :
 
