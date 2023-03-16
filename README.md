@@ -10,8 +10,9 @@
 
 <p align="center">
   <a href="">
-    <img src="https://img.shields.io/badge/General-Methods-black.svg">
-
+   <img src=https://img.shields.io/badge/Made%20with-%E2%9D%A4%EF%B8%8F-blue>
+   <img src=https://img.shields.io/badge/License-MIT-blue>
+   <img src=https://img.shields.io/badge/Share-Project-green>
   </a>
   </p>
 
